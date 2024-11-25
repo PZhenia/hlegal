@@ -9,7 +9,11 @@ $active-active: #006ccf;
 $main-alt: #46466e;
 $grey-separator: #e6e6f0;
 $accent: #f0145a;
-
+@mixin max-screen($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
 *{
   padding: 0;
   margin: 0;
@@ -32,6 +36,9 @@ footer{
     display: flex;
     justify-content: space-between;
     position: relative;
+    @include max-screen(600px){
+      display: block;
+    }
     &::before{
       content: "";
       position: absolute;
@@ -61,6 +68,11 @@ footer{
         font-size: 16px;
         color: $main-regular;
         position: relative;
+        @include max-screen(600px){
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10px;
+        }
         &:not(:last-of-type)::after{
           position: absolute;
           content: "";
@@ -71,12 +83,19 @@ footer{
           right: -8px;
           border-radius: 100%;
           background: $grey-text;
+          @include max-screen(600px){
+            display: none;
+          }
         }
       }
     }
     .top{
       max-width: 281px;
       margin-bottom: 21px;
+      @include max-screen(600px){
+        display: block;
+        margin: auto;
+      }
       .active_text{
         font-weight: 700;
         font-size: 12px;
@@ -87,6 +106,10 @@ footer{
     }
     .bottom{
       max-width: 398px;
+      @include max-screen(600px){
+        display: block;
+        margin-bottom: 30px;
+      }
       li{
         font-weight: 700;
         text-align: right;
@@ -101,6 +124,10 @@ footer{
         transition: background-image 0.3s ease;
         &:hover{
           background-image: url('../img/Facebook-Header.svg');
+        }
+        @include max-screen(600px){
+          margin: auto;
+          margin-bottom: 10px;
         }
       }
       .active-bold{

@@ -34,16 +34,37 @@ a{
   .container{
     max-width: 1400px;
     margin: auto;
+    .up_header{
+      @include max-screen(600px){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 15px;
+        background: rgba(245, 245, 250, 0.2);
+      }
+    }
   }
   header{
     margin-bottom: 60px;
+    background: $main-regular;
+    background: url("../img/Symbol.svg") no-repeat center center;
+    background-size: contain;
+    height: 100vh;
+    max-height: 800px;
+    position: relative;
     .container{
       padding: 50px 60px 4px;
-      display: flex;
-      justify-content: space-between;
       @include max-screen(1024px){
         padding: 30px;
       }
+      @include  max-screen(600px){
+        padding: 0;
+      }
+    }
+    .flex-header{
+      display: flex;
+      justify-content: space-between;
     }
     .logo {
       position: relative;
@@ -62,6 +83,9 @@ a{
       height: 100%;
       background: url("../img/Logo-dark_banner.svg") no-repeat center center;
       background-size: contain;
+      @include max-screen(600px){
+        max-width: 90%;
+      }
     }
     .header_info{
       max-width: 478px;
@@ -206,6 +230,10 @@ a{
       top: 90%;
       left: 49%;
       background-image: url("../img/Scroll.svg");
+      @include max-screen(600px){
+        top: 72%;
+        left: 47%;
+      }
     }
     h1{
       position: absolute;
@@ -232,6 +260,10 @@ a{
       @include max-screen(1024px){
         padding: 10px;
       }
+      @include max-screen(600px){
+        padding: 30px;
+        flex-wrap: wrap;
+      }
     }
     ul{
       max-width: 375px;
@@ -247,6 +279,13 @@ a{
         @include max-screen(1024px){
           height: 280px;
         }
+        @include max-screen(600px){
+          height: 4px;
+          width: 98%;
+          left: 50%;
+          top: 100%;
+          transform: translateX(-50%);
+        }
       }
       li{
         font-family: 'Montserrat', sans-serif;
@@ -258,8 +297,14 @@ a{
         @include max-screen(1024px){
           font-size: 36px;
         }
+        @include max-screen(600px){
+          text-align: center;
+        }
+        &:hover{
+          color: $accent;
+        }
         &:first-of-type{
-          background: linear-gradient(298deg, #ef8080 0%, #f0145a 100%);
+          background: linear-gradient(298deg, #f0145a 0%, #ef8080 100%);
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -294,10 +339,13 @@ a{
       @include max-screen(1024px){
         padding: 60px;
       }
+      @include max-screen(600px){
+        padding: 30px;
+      }
     }
     .description{
       margin-bottom: 60px;
-      p{
+      a{
         display: inline-flex;
         align-items: center;
         margin-bottom: 10px;
@@ -313,6 +361,12 @@ a{
           width: 12px;
           height: 12px;
           background: url("../img/Arrow.svg");
+        }
+        &:hover{
+          color: $accent;
+          &:after{
+            background-image: url("../img/Arrow-Accent.svg");
+          }
         }
       }
       h3{
@@ -386,19 +440,30 @@ a{
   margin-bottom: 60px;
   .container{
     padding: 0 60px 46px 60px;
+    @include max-screen(600px){
+      padding: 30px;
+    }
   }
   .article_information{
     display: flex;
     background: $grey-bg-alt;
     border-radius: 12px;
+    @include max-screen(600px){
+      flex-wrap: wrap;
+    }
   }
   img{
     margin-right: 30px;
+    border-radius: 12px;
   }
   article{
     padding: 30px;
     max-width: 860px;
-    .team-text{
+    @include max-screen(600px){
+      padding: 30px;
+    }
+    a{
+      font-family: 'Montserrat', sans-serif;
       display: inline-flex;
       align-items: center;
       font-weight: 700;
@@ -414,6 +479,13 @@ a{
         height: 12px;
         background: url("../img/Arrow.svg");
       }
+      &:hover{
+        color: $accent;
+        &:after{
+          background-image: url("../img/Arrow-Accent.svg");
+        }
+      }
+
     }
     h3{
       font-family: 'Montserrat', sans-serif;
@@ -424,6 +496,9 @@ a{
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 30px;
+      @include max-screen(600px){
+        font-size: 34px;
+      }
     }
     .bold-grey{
       font-weight: 700;
@@ -458,9 +533,12 @@ a{
   .container{
     padding: 30px 60px 0;
     background: $grey-bg;
+    @include max-screen(600px){
+      padding: 30px 30px 0;
+    }
   }
   .gradient-text{
-    p{
+    a{
       display: inline-flex;
       align-items: center;
       font-family: 'Montserrat', sans-serif;
@@ -476,6 +554,12 @@ a{
         width: 12px;
         height: 12px;
         background: url("../img/Arrow.svg");
+      }
+      &:hover{
+        color: $accent;
+        &:after{
+          background-image: url("../img/Arrow-Accent.svg");
+        }
       }
     }
     h3{
@@ -495,10 +579,16 @@ a{
     max-width: 1320px;
     display: flex;
     justify-content: space-between;
+    @include max-screen(600px){
+      flex-wrap: wrap;
+    }
     article{
       max-width: 360px;
       background-color: $basic-white;
       border-radius: 8px;
+      @include max-screen(600px){
+        margin-bottom: 30px;
+      }
       img{
         width: 100%;
       }

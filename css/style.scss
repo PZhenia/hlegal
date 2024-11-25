@@ -10,7 +10,11 @@ $main-alt: #46466e;
 $grey-separator: #e6e6f0;
 $accent: #f0145a;
 @import "footer-style";
-
+@mixin max-screen($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
 *{
   padding: 0;
   margin: 0;
@@ -30,9 +34,61 @@ header{
   margin-bottom: 60px;
   .container{
     padding: 50px 60px 4px;
-    display: flex;
-    justify-content: space-between;
+    @include max-screen(600px){
+      padding: 0;
+    }
+    .flex-header{
+      display: flex;
+      justify-content: space-between;
+      @include max-screen(600px){
+        padding: 15px;
+      }
+    }
   }
+  .up_header {
+    display: none;
+    @include max-screen(600px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $grey-bg;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .phone{
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-align: right;
+      color: $grey-text;
+      position: relative;
+      border-radius: 0;
+      padding: 0;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      li{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-align: center;
+        border-radius: 8px;
+        padding: 5px 7px;
+        color: #b3b3ba;
+        &:hover{
+          background-color: #C8C8C8;
+          color: $basic-white;
+        }
+        &:active{
+          background-color: $accent;
+          color: $basic-white;
+        }
+      }
+    }
+  }
+
   .logo {
     position: relative;
     display: inline-block;
@@ -49,9 +105,15 @@ header{
     height: 100%;
     background: url("../img/Logo.svg") no-repeat center center;
     background-size: contain;
+    @include max-screen(600px){
+      width: 98%;
+    }
   }
   .header_info{
-    max-width: 478px;
+    @include max-screen(600px){
+      display: none;
+    }
+    max-width: 488px;
     .info{
       display: flex;
       justify-content: flex-end;
@@ -185,8 +247,20 @@ header{
     display: flex;
     justify-content: space-between;
     margin-bottom: 60px;
+    @include max-screen(1024px){
+      flex-wrap: wrap;
+    }
+    @include max-screen(600px){
+      padding: 0 30px;
+    }
   }
   article{
+    @include max-screen(1024px){
+      margin-left: 60px;
+    }
+    @include max-screen(600px){
+      margin-left: 30px;
+    }
     ul{
       max-width: 388px;
     }
@@ -195,10 +269,18 @@ header{
       content: "";
       position: absolute;
       width: 4px;
-      height: 344px;
+      height: 322px;
       left: 105%;
       top: 0;
       background: $grey-separator;
+      @include max-screen(1024px){
+        top: 115%;
+        left: 0;
+      }
+      @include max-screen(600px){
+        top: 105%;
+        left: 0;
+      }
     }
     h2{
       font-family: 'Montserrat', sans-serif;
@@ -256,6 +338,10 @@ header{
   .slogan{
     max-width: 660px;
     margin-right: 60px;
+    @include max-screen(1024px){
+      margin-bottom: 60px;
+      margin-left: 0;
+    }
     h2{
       margin: 0 60px 28px 0;
       text-align: left;
@@ -269,24 +355,37 @@ header{
     }
   }
 }
-.banner{
-  h3{
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url("../img/Team.jpg") no-repeat center center;
+  background-size: cover;
+  margin-bottom: 60px;
+  padding: 140px;
+
+  h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 96px;
+    font-size: 6vw;
     letter-spacing: 0.66em;
     text-transform: uppercase;
-    text-align: center;
     color: $basic-white;
     text-shadow: 0 15px 30px 0 rgba(40, 40, 86, 0.8);
     opacity: 0.8;
+    margin: 0;
+
+    @include max-screen(600px) {
+      opacity: 1;
+    }
   }
-  padding: 186px 481px;
-  background: url("../img/Team.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 60px;
+  @include max-screen(1024px) {
+    padding: 80px;
+  }
+  @include max-screen(600px) {
+    padding: 50px;
+  }
 }
 .quality{
   .container{
@@ -294,8 +393,18 @@ header{
     display: flex;
     justify-content: space-between;
     margin-bottom: 60px;
+    @include max-screen(600px){
+      flex-wrap: wrap;
+      padding: 0 30px;
+    }
   }
   p{
+    @include max-screen(1024px){
+      max-width: 600px;
+    }
+    @include max-screen(600px){
+      margin-bottom: 15px;
+    }
     max-width: 658px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -332,6 +441,9 @@ header{
       max-width: 1320px;
       display: flex;
       justify-content: space-between;
+      @include max-screen(600px){
+        justify-content: center;
+      }
       li{
         background: $basic-white;
         border-radius: 12px;
@@ -340,6 +452,10 @@ header{
         align-items: center;
         width: 260px;
         height: 100px;
+        @include max-screen(1024px){
+          width: 200px;
+          height: 80px;
+        }
         img {
           max-width: 60%;
           max-height: 60%;
