@@ -33,3 +33,17 @@ fetch('footer.html')
         document.getElementById('footer').innerHTML = data;
     })
     .catch(error => console.error("Error loading footer:", error));
+
+$(document).ready(function () {
+    $('.pseudo-button').click(function () {
+        if (window.innerWidth <= 600) {
+            $('.costistent ul li').slideDown(500, function () {
+                $('html, body').animate({
+                    scrollTop: $('.costistent ul').offset().top - 60 // -60 пікселів, щоб залишити відступ зверху
+                }, 400);
+            });
+        }
+    });
+});
+
+
