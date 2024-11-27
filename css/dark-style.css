@@ -635,6 +635,12 @@ a {
   padding: 30px;
   max-width: 860px;
 }
+@media screen and (max-width: 390px) {
+  .team article {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
 @media screen and (max-width: 600px) {
   .team article {
     padding: 30px;
@@ -673,10 +679,16 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 30px;
+  max-width: 100%;
+}
+@media screen and (max-width: 390px) {
+  .team article h3 {
+    word-break: break-all;
+  }
 }
 @media screen and (max-width: 600px) {
   .team article h3 {
-    font-size: 34px;
+    font-size: 30px;
   }
 }
 .team article .bold-grey {
