@@ -398,13 +398,8 @@ a{
         }
       }
     }
-    .items{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    .row{
       article{
-        max-width: 380px;
-        margin-bottom: 60px;
         a{
           padding: 14px;
           border-radius: 24px;

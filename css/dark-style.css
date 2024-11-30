@@ -553,29 +553,20 @@ a {
     font-size: 36px;
   }
 }
-.dark-theme .services .items {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.dark-theme .services .items article {
-  max-width: 380px;
-  margin-bottom: 60px;
-}
-.dark-theme .services .items article a {
+.dark-theme .services .row article a {
   padding: 14px;
   border-radius: 24px;
   background: #fff;
   margin-bottom: 30px;
 }
-.dark-theme .services .items article h4 {
+.dark-theme .services .row article h4 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 22px;
   color: #24a3ff;
   margin-bottom: 15px;
 }
-.dark-theme .services .items article p {
+.dark-theme .services .row article p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
